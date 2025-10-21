@@ -6,6 +6,7 @@ use App\Exports\UsersExport;
 use App\Imports\UserImport;
 use App\Imports\UsersImport;
 use App\Models\User;
+use Dedoc\Scramble\Attributes\ExcludeRouteFromDocs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Facades\Excel;
@@ -13,8 +14,9 @@ use Maatwebsite\Excel\Facades\Excel;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display all users.
      */
+       #[ExcludeRouteFromDocs()]
     public function index()
     {
         $users = User::all();
